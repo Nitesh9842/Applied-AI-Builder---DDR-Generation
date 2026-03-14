@@ -1,7 +1,11 @@
 import os
+import sys
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from dotenv import load_dotenv
+
+# Add the 'src' directory to sys.path to resolve ModuleNotFoundError on Render
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from document_extractor import DocumentExtractor
 from llm_processor import LLMProcessor
