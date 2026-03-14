@@ -1,0 +1,7 @@
+pymupdf
+openai
+python-dotenv
+Pillow
+reportlab
+Flask
+flask-cors

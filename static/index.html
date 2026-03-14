@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applied AI Builder - DDR Generation</title>
+    <!-- Use standard Inter font for modern aesthetics -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for sleek icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Marked.js for rendering markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="logo-container">
+                <i class="fa-solid fa-microchip ai-icon"></i>
+                <h1>DDR Generator Pro</h1>
+            </div>
+            <p class="subtitle">Intelligent Diagnostic Reporting</p>
+        </header>
+
+        <main class="container">
+            <section class="upload-section glass-panel">
+                <h2>Upload Reports</h2>
+                <form id="uploadForm">
+                    <div class="file-inputs">
+                        <div class="file-drop-area" id="dropAreaInspection">
+                            <i class="fa-solid fa-file-pdf file-icon"></i>
+                            <span class="file-msg">Drag & Drop <strong>Inspection Report</strong> (PDF)<br>or click to browse</span>
+                            <input class="file-input" type="file" id="inspection" name="inspection" accept=".pdf" required>
+                        </div>
+
+                        <div class="file-drop-area" id="dropAreaThermal">
+                            <i class="fa-solid fa-temperature-half file-icon"></i>
+                            <span class="file-msg">Drag & Drop <strong>Thermal Report</strong> (PDF)<br>or click to browse</span>
+                            <input class="file-input" type="file" id="thermal" name="thermal" accept=".pdf" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="generateBtn">
+                        <span class="btn-text">Generate DDR</span>
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </button>
+                </form>
+
+                <div id="loading" class="loading-state hidden">
+                    <div class="spinner"></div>
+                    <p>AI is analyzing documents and fusing data...</p>
+                </div>
+                
+                <div id="errorMsg" class="error-state hidden"></div>
+            </section>
+
+            <section class="result-section hidden" id="resultSection">
+                <div class="result-header">
+                    <h2>Detailed Diagnostic Report</h2>
+                    <button id="downloadBtn" class="download-btn">
+                        <i class="fa-solid fa-download"></i> Save Markdown
+                    </button>
+                </div>
+                <!-- Rendered Markdown will go here -->
+                <div id="reportContent" class="markdown-body"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
