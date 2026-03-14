@@ -5,3 +5,4 @@ Pillow
 reportlab
 Flask
 flask-cors
+gunicorn
